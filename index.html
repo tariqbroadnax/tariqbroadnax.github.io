@@ -7,7 +7,9 @@
 	</head>
 	
 	<body style="width: 1060px; margin: auto">
-		<a href="#"><img src="https://i.imgur.com/aH3G6IU.png"></a>
+		<a href="#">
+			<img style="height: 50px" src="https://i.imgur.com/aH3G6IU.png">
+		</a>
 		
 		<div class="w3-bar w3-black">
 			<div class="w3-dropdown-hover">
@@ -45,8 +47,15 @@
 					</div>
 				</button>
 			</div>
+			
 			<a href="#" class="w3-bar-item w3-button w3-black w3-right">Go</a>
-			<input type="text" class="w3-bar-item w3-input w3-right" placeholder="Search..">
+			
+			<div style="margin: 0; padding: 0;" class="w3-bar-item w3-right">
+				<input id="search input" type="text" class="w3-input" placeholder="Search.." oninput="updateSearchDropdown()" onblur="clearSearchDropdown()">
+				<div id="search dropdown" style="z-index: 100; position: absolute;">
+				</div>
+			</div>
+			
 			<select class="w3-select w3-bar-item w3-right" name="option">
 				<option value="0">All</option>
 				<option value="1">Development</option>
@@ -55,24 +64,40 @@
 			</select>
 		</div>
 		
-		<h3 style="margin-left:10px">Welcome to My Website!</h3>
+		<div class="w3-container w3-gray">
+			<h4>Welcome to tariqbroadnax.github.io!</h4>
+		</div>
 		
 		<div style="width:70%; margin-left:10px; margin-right:10px">
-			<div class="w3-bar">
-				<h6 class="w3-bar-item w3-left" style="padding-left:0px; margin-top:0px; margin-bottom:0px; margin-left:0px">Upcoming Projects</h6>
+			<div class="w3-bar w3-border-bottom w3-border-black">
+				<h6 class="w3-bar-item w3-left" style="padding-left:0px; margin-top:0px; margin-bottom:0px; margin-left:0px"><b>Upcoming Projects</b></h6>
 				<h6 class="w3-bar-item w3-right" style="margin-top:0px; margin-bottom:0px; margin-right:0px; padding-right:0px;"><a href=#>View More</a></h6>
 			</div>
 			
-			<div class="w3-bar">
-				<h6 class="w3-bar-item w3-left" style="padding-left:0px; margin-top:0px; margin-bottom:0px; margin-left:0px">Latest Projects</h6>
-				<h6 class="w3-bar-item w3-right" style="margin-top:0px; margin-bottom:0px; margin-right:0px; padding-right:0px;"><a href=#>View More</a></h6>
+			<div id = "upcoming projects container" class="w3-content w3-display-container">
+				<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 0)">&#10094;</button>
+				<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 0)">&#10095;</button>
 			</div>
 			
-			<div class="w3-bar">
-				<h6 class="w3-bar-item w3-left" style="padding-left:0px; margin-top:0px; margin-bottom:0px; margin-left:0px">Popular Projects</h6>
+			<div class="w3-bar w3-border-bottom w3-border-black">
+				<h6 class="w3-bar-item w3-left" style="padding-left:0px; margin-top:0px; margin-bottom:0px; margin-left:0px"><b>Latest Projects</b></h6>
 				<h6 class="w3-bar-item w3-right" style="margin-top:0px; margin-bottom:0px; margin-right:0px; padding-right:0px;"><a href=#>View More</a></h6>
 			</div>
+		
+			<div id = "recent projects container" class="w3-content w3-display-container">
+				<button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1, 1)">&#10094;</button>
+				<button class="w3-button w3-black w3-display-right" onclick="plusDivs(1, 1)">&#10095;</button>
+			</div>
+			
+			<div class="w3-bar w3-border-bottom w3-border-black">
+				<h6 class="w3-bar-item w3-left" style="padding-left:0px; margin-top:0px; margin-bottom:0px; margin-left:0px"><b>Posts</b></h6>
+				<h6 class="w3-bar-item w3-right" style="margin-top:0px; margin-bottom:0px; margin-right:0px; padding-right:0px;"><a href="assets">View More</a></h6>
+			</div>
+			
+			<div id = "posts"></div>
+			
 		</div>
 	</body>
 	<script src = "script.js"> </script>
+	<script src = "script2.js"> </script>
 </html>
