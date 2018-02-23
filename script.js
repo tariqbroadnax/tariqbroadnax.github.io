@@ -121,7 +121,7 @@ function initUpcomingProjectsSlideshow(xml)
 	{
 	    if(getDate(x[i]) < currDate)
 			continue;
-		
+				
 		var imgNode = x[i].getElementsByTagName("IMAGE");
 		
 		if (imgNode.length > 0)
@@ -129,9 +129,9 @@ function initUpcomingProjectsSlideshow(xml)
 		else
 			imgURL = "assets/code_icon.png";
 		
-		html += "<div class=\"w3-display-container mySlides1\"><img src=\""+imgURL+"\" style=\"width:100%\">";
+		html += "<div class=\"w3-display-container w3-animate-right mySlides1\"><img src=\""+imgURL+"\" style=\"width:100%\">";
 		
-		html += "<div class=\"w3-display-bottomleft w3-container w3-padding-16 w3-black\">" + x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue + "</div></div>";
+		html += "<div class=\"w3-display-bottomleft w3-container w3-padding-16 w3-black\">" + x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue + "</div></div>";		
 	}
 	
 	document.getElementById("upcoming projects container").innerHTML = html+document.getElementById("upcoming projects container").innerHTML;
@@ -167,7 +167,7 @@ function initRecentProjectsSlideshow(xml)
 		html += "<div class=\"w3-display-bottomleft w3-container w3-padding-16 w3-black\">" + x[i].getElementsByTagName("NAME")[0].childNodes[0].nodeValue + "</div></div>";
 	}
 	
-	document.getElementById("recent projects container").innerHTML = html+document.getElementById("upcoming projects container").innerHTML;
+	document.getElementById("recent projects container").innerHTML = html+document.getElementById("recent projects container").innerHTML;
 }
 
 function getDate(projectNode)
@@ -206,18 +206,38 @@ function maxCompareProjectXML(projectNode1, projectNode2)
 
 var slideIndex = [1,1];
 var slideId = ["mySlides1", "mySlides2"]
+var timerVars = [null, null];
 
 function plusDivs(n, no) {
   showDivs(slideIndex[no] += n, no);
 }
 
-function showDivs(n, no) {
+function showDivs(n, no) 
+{
+  if(timerVars[no] != null)
+	  clearInterval(timerVars[no]);
+  
   var i;
   var x = document.getElementsByClassName(slideId[no]);
+  console.log(x.length);
+  if(x.length == 1) return;
   if (n > x.length) {slideIndex[no] = 1}    
   if (n < 1) {slideIndex[no] = x.length}
-  for (i = 0; i < x.length; i++) {
+  for (i = 0; i < x.length; i++) 
+  {
      x[i].style.display = "none";  
+  
+	 x[i].classList.remove("w3-animate-right");
+	 x[i].classList.remove("w3-animate-left");
+		
+	 if(n < 2)
+		x[i].classList.add("w3-animate-left");
+	 else
+		x[i].classList.add("w3-animate-right");
   }
+  
+  
   x[slideIndex[no]-1].style.display = "block";  
+  
+	timerVars[no] = setInterval(function(){plusDivs(1, no);}, 5000);
 }

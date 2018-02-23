@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">	
+	<head> 
+		<title> Tariq's Website </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">		
+	</head>
+	
+	<body style="width: 1060px; margin: auto">
+		<a href="../index.html">
+			<img style="height: 50px" src="https://i.imgur.com/aH3G6IU.png">
+		</a>
+		
+		<div class="w3-bar w3-black">
+			<div class="w3-dropdown-hover">
+				<button class="w3-button w3-black">Development</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="search/development.html" class="w3-bar-item w3-button">Development Search</a>
+						<a href="#" class="w3-bar-item w3-button">Top Projects</a>
+						<a href="#" class="w3-bar-item w3-button">Current Projects</a>
+					</div>
+				</button>
+			</div>
+			<div class="w3-dropdown-hover">
+				<button class="w3-button w3-black">Gaming</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="#" class="w3-bar-item w3-button">Game Search</a>
+						<a href="#" class="w3-bar-item w3-button">Top Rated Games</a>
+						<a href="#" class="w3-bar-item w3-button">Current Games Played</a>
+					</div>
+				</button>
+			</div>
+			<div class="w3-dropdown-hover">
+				<button class="w3-button w3-black">Anime/Manga</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="#" class="w3-bar-item w3-button">Anime/Manga Search</a>
+						<a href="#" class="w3-bar-item w3-button">Top Rated Anime/Mangas</a>
+						<a href="#" class="w3-bar-item w3-button">Current View List</a>
+					</div>
+				</button>
+			</div>
+			<div class="w3-dropdown-hover">
+				<button class="w3-button w3-black">Help</button>
+					<div class="w3-dropdown-content w3-bar-block w3-card-4">
+						<a href="#" class="w3-bar-item w3-button">About</a>
+						<a href="#" class="w3-bar-item w3-button">FAQ</a>
+					</div>
+				</button>
+			</div>
+			
+			<div class="w3-bar-item w3-right">
+				<div class="w3-bar">
+					<select class="w3-select w3-bar-item" name="option">
+						<option value="0">All</option>
+						<option value="1">Development</option>
+						<option value="2">Gaming</option>
+						<option value="3">Anime/Manga</option>
+					</select>
+					
+					<input class="w3-bar-item" id="search input" type="text" class="w3-input" placeholder="Search.." oninput="updateSearchDropdown()" onfocus="updateSearchDropdown()" onblur="clearSearchDropdown()">
+					
+					<a href="#" class="w3-bar-item w3-button w3-black">Go</a>
+				</div>
+				<div id="search dropdown" style="z-index: 100; position: absolute;"></div>
+			</div>
+		</div>
+		
+		<div class="w3-container w3-gray">
+			<h4>Development Search</h4>
+		</div>
+		
+		<div class="w3-container">
+			<p><a href="../index.html">Top</a> > <a href="development.html">Anime</a></p>
+		</div>
+		
+		<div class="w3-border-bottom w3-border-black">
+			<p align="center">Upcoming Just Added # A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+		</div>
+		
+		
+		
+	</body>
+	<script src = "script2.js"> </script>
+</html>

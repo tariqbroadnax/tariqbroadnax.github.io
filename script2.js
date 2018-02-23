@@ -2,7 +2,7 @@ var MAX_SEARCH_RESULTS = 5;
 
 function updateSearchDropdown()
 {
-	console.log("input received");
+	// console.log("input received");
 	
 	var xhttp = new XMLHttpRequest();
 
@@ -18,7 +18,7 @@ function updateSearchDropdown()
 
 function _updateSearchDropdown(xml)
 {
-	console.log("project file opened");
+	// console.log("project file opened");
 	
 	var input = document.getElementById("search input").value;
 	
@@ -26,22 +26,24 @@ function _updateSearchDropdown(xml)
 	
 	projects = searchProjects(projects, input);
 	
-	console.log(projects.length);
+	// console.log(projects.length);
 	
-	if(projects.length <= 0)
-		return;
+	var html = "";
 	
-	var html = "<p>Projects</p>";
+	if(projects.length > 1 && input.length > 0)
+	{
+		var html = "<div class=\"w3-container w3-black\"><h9><b>Development</b></h9></div>";
 	
-	for(var i = 0; i < projects.length && i < MAX_SEARCH_RESULTS; i++)
-		html += getProjectSearchItemHTML(projects[i]);
+		for(var i = 0; i < projects.length && i < MAX_SEARCH_RESULTS; i++)
+			html += getProjectSearchItemHTML(projects[i]);
+	}
 	
 	document.getElementById("search dropdown").innerHTML = html;
 }
 
 function projectXmlToObjects(xml)
 {
-	console.log("converting project xml to objects");
+	// console.log("converting project xml to objects");
 	
 	var xmlDoc = xml.responseXML;
 	
@@ -74,7 +76,7 @@ function projectXmlToObjects(xml)
 
 function searchProjects(projects, input)
 {
-	console.log("searching projects");
+	// console.log("searching projects");
 		
 	var out = [];
 	
@@ -89,9 +91,9 @@ function searchProjects(projects, input)
 
 function getProjectSearchItemHTML(project)
 {
-	var html = "<div class=\"w3-container\"><img style=\"height: 50px;width: 50px;\" class=\"w3-cell\" src=\""+project.imgURL+"\"><div class=\"w3-cell\"><p>"+project.name+"</p></div>";
+	var html = "<div class=\"w3-white w3-hover-blue\"><div class=\"w3-container w3-cell\"><img style=\"height: 50px;width: 50px;\" src=\""+project.imgURL+"\"></div><div class=\"w3-container w3-cell\"><p style=\"margin: 0\">"+project.name+"<br>("+project.date.getFullYear()+")</p></div></div>";
 	
-	console.log(html);
+	// console.log(html);
 	
 	return html;
 }
